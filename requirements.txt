@@ -1,0 +1,15 @@
+streamlit
+llama-index
+llama-index-llms-litellm
+llama-index-embeddings-huggingface
+llama-index-vector-stores-pinecone
+litellm
+pinecone-client
+sentence-transformers
+transformers
+torch
+cloudscraper
+html2text
+beautifulsoup4
+nest-asyncio
+python-dotenv
