@@ -1,0 +1,23 @@
+from llama_index.readers.web import SimpleWebPageReader
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
+
+# ... (keep your LLM and Embedder settings from before)
+
+def get_answer_from_web_and_local(query_str, urls=[]):
+    all_docs = []
+    
+    # 1. Load Local PDFs (The stable rules)
+    if os.path.exists("./data"):
+        all_docs.extend(SimpleDirectoryReader("./data").load_data())
+    
+    # 2. Scrape Live Websites (The latest updates)
+    if urls:
+        web_docs = SimpleWebPageReader(html_to_text=True).load_data(urls)
+        all_docs.extend(web_docs)
+    
+    # 3. Create Index from everything
+    index = VectorStoreIndex.from_documents(all_docs)
+    query_engine = index.as_query_engine()
+    
+    response = query_engine.query(query_str)
+    return str(response)
