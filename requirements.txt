@@ -4,7 +4,8 @@ llama-index-llms-litellm
 llama-index-embeddings-huggingface
 llama-index-vector-stores-pinecone
 litellm
-pinecone-client
+pinecone-client>=3.0.0
+llama-index-vector-stores-pinecone
 sentence-transformers
 transformers
 torch
@@ -12,4 +13,5 @@ cloudscraper
 html2text
 beautifulsoup4
 nest-asyncio
+
 python-dotenv
